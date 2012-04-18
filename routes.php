@@ -19,7 +19,8 @@ Route::get('(:bundle)/version', array('as' => 'rejigger_version', function()
 	// Parse out resources (css & script)
 	preg_match_all('/\<script[^\>]+src=\"(?P<src>[^\"]+)\"[^\>]*\>/i', $response->content, $scripts);
 	preg_match_all('/\<link[^\>]+href=\"(?P<href>[^\"]+)\"[^\>]*\>/i', $response->content, $styles);
-	$resources = array_merge($scripts['src'], $styles['href']);
+	preg_match_all('/\<img[^\>]+src=\"(?P<src>[^\"]+)\"[^\>]*\>/i', $response->content, $images);
+	$resources = array_merge($scripts['src'], $styles['href'], $images['src']);
 
 	$public = path('public');
 	foreach ($resources as $resource)
