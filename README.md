@@ -6,7 +6,7 @@ ___Rest your refresh button___
 
 Rejigger allows you to develop with Laravel without using the refresh button so often. All you have to do is enable it and watch your updates happen instantaneously.
 
-Rejigger inserts a little JavaScript at the end of the Laravel response. The JavaScript uses AJAX to ask Rejigger occasionally if the response - or any of its ```<script>``` or ```<style>``` assets - has changed.
+Rejigger inserts a little JavaScript at the end of the Laravel response. The JavaScript uses AJAX to ask Rejigger occasionally if the response - or any of its ```<script>``` or ```<link>``` assets - has changed.
 
 If one has, the Rejigger script requests a page reload.
 
