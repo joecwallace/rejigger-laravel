@@ -9,18 +9,22 @@ reJquery(document).ready(function() {
 });
 
 function rejigger() {
-	reJquery.getJSON(rejigger_version_uri, {
+	reJquery.get(rejigger_version_uri, {
 		uri: window.location.href
 	}, function(data) {
-		if (typeof rejigger_version == 'undefined') {
-			rejigger_version = data.version;
+		if (data.charAt(0) == '{') {
+			var json = (new Function("return " + data))();
+
+			if (typeof rejigger_version == 'undefined') {
+				rejigger_version = json.version;
+			}
+
+			if (rejigger_version == json.version) {
+				setTimeout("rejigger()", <?= Config::get('rejigger::settings.update_milliseconds', '1000') ?>);
+				return;
+			}
 		}
 
-		if (rejigger_version != data.version) {
-			window.location.reload(true);
-		}
-		else {
-			setTimeout("rejigger()", <?= Config::get('rejigger::settings.update_milliseconds', '1000') ?>);
-		}
+		window.location.reload(true);
 	});
 }
