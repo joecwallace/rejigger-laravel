@@ -16,10 +16,6 @@ If one has, the Rejigger script requests a page reload.
 
     php artisan bundle:install rejigger
 
-#### Fix up the last line of ```laravel/laravel.php```
-
-    Event::fire('laravel.done', $response);
-
 #### Add something like this to ```application/bundles.php```
 
     return array(
