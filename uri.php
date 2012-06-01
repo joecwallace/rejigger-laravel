@@ -15,4 +15,9 @@ class URI extends \Laravel\URI
 		return static::$uri;
 	}
 
+	protected static function remove($uri, $value)
+	{
+		return (strpos($uri, $value) === 0) ? substr($uri, strlen($value)) : $uri;
+	}
+
 }
