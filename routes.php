@@ -1,10 +1,5 @@
 <?php
 
-Route::get('(:bundle)/rejigger.js', array('as' => 'rejigger_js', function()
-{
-	return View::make('rejigger::js');
-}));
-
 Route::get('(:bundle)/version', array('as' => 'rejigger_version', function()
 {
 	// Don't let the controller mistake this for a regular AJAX call

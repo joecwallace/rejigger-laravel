@@ -12,7 +12,7 @@ if (in_array('*', $envs) ||
 	{
 		if (! (Request::route()->is('rejigger_js') || Request::route()->is('rejigger_version')))
 		{
-			echo HTML::script(URL::to_route('rejigger_js'));
+			echo '<script type="text/javascript">' . View::make('rejigger::js') . '</script>';
 		}
 	});
 }
