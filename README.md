@@ -49,3 +49,7 @@ The default settings for Rejigger allow it to update every second and run in all
             '*',
         ),
     );
+
+## License
+
+MIT license - [http://www.opensource.org/licenses/mit-license.php](http://www.opensource.org/licenses/mit-license.php)
